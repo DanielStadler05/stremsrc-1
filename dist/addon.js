@@ -30,6 +30,7 @@ const manifest = {
 };
 const builder = new stremio_addon_sdk_1.addonBuilder(manifest);
 const addonFn = (_a) => __awaiter(void 0, [_a], void 0, function* ({ type, id }) {
+    var _b, _c;
     try {
         // Get streams from both extractors concurrently
         const [vidsrcStreams, pStreamStreams] = yield Promise.allSettled([
@@ -37,11 +38,11 @@ const addonFn = (_a) => __awaiter(void 0, [_a], void 0, function* ({ type, id })
             (0, pstream_1.getStreamContent)(id, type),
         ]);
         const allStreams = [];
-        // Add VidSrc streams if successful
+        console.log("VidSrc result:", vidsrcStreams.status, vidsrcStreams.status === "rejected" ? vidsrcStreams.reason : (_b = vidsrcStreams.value) === null || _b === void 0 ? void 0 : _b.length);
+        console.log("PStream result:", pStreamStreams.status, pStreamStreams.status === "rejected" ? pStreamStreams.reason : (_c = pStreamStreams.value) === null || _c === void 0 ? void 0 : _c.length);
         if (vidsrcStreams.status === "fulfilled" && vidsrcStreams.value) {
             allStreams.push(...vidsrcStreams.value);
         }
-        // Add P-Stream streams if successful
         if (pStreamStreams.status === "fulfilled" && pStreamStreams.value) {
             allStreams.push(...pStreamStreams.value);
         }

@@ -81,7 +81,6 @@ function getStreamContent(id, type) {
                     proxyHeaders: {
                         request: Object.assign(Object.assign({}, result.stream.headers), result.stream.preferredHeaders),
                     },
-                    notWebReady: true,
                 },
             });
             // Try to parse HLS master playlist for individual qualities
@@ -96,7 +95,6 @@ function getStreamContent(id, type) {
                             proxyHeaders: {
                                 request: Object.assign(Object.assign({}, result.stream.headers), result.stream.preferredHeaders),
                             },
-                            notWebReady: true,
                         },
                     });
                 }
@@ -117,7 +115,6 @@ function getStreamContent(id, type) {
                             proxyHeaders: {
                                 request: Object.assign(Object.assign({}, result.stream.headers), result.stream.preferredHeaders),
                             },
-                            notWebReady: true,
                         },
                     });
                 }
@@ -137,7 +134,6 @@ function getStreamContent(id, type) {
                         proxyHeaders: {
                             request: Object.assign(Object.assign({}, result.stream.headers), result.stream.preferredHeaders),
                         },
-                        notWebReady: true,
                     },
                 });
             }

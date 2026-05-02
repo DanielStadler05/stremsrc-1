@@ -210,6 +210,7 @@ function getStreamContent(id, type) {
     return __awaiter(this, void 0, void 0, function* () {
         var _a, _b, _c;
         const url = getUrl(id, type);
+        console.log("VidSrc fetching URL:", url);
         const embed = yield fetch(url, {
             headers: Object.assign({}, getRandomizedHeaders()),
         });
@@ -248,6 +249,8 @@ function getStreamContent(id, type) {
             }
         }
         const res = apiResponse;
+        console.log("VidSrc servers found:", servers.length);
+        console.log("VidSrc streams found:", res.length);
         if (!res)
             return [];
         let streams = [];
@@ -268,7 +271,6 @@ function getStreamContent(id, type) {
                                 Referer: `${BASEDOM}/`,
                             },
                         },
-                        notWebReady: true,
                     },
                 });
                 // Add individual quality streams
@@ -284,7 +286,6 @@ function getStreamContent(id, type) {
                                     Referer: `${BASEDOM}/`,
                                 },
                             },
-                            notWebReady: true,
                         },
                     });
                 }
@@ -302,7 +303,6 @@ function getStreamContent(id, type) {
                                 Referer: `${BASEDOM}/`,
                             },
                         },
-                        notWebReady: true,
                     },
                 });
             }
