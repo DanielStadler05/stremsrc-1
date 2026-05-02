@@ -131,6 +131,7 @@ function serversLoad(html) {
     return __awaiter(this, void 0, void 0, function* () {
         var _a, _b, _c;
         const $ = cheerio.load(html);
+        console.log("Full HTML:", html.substring(0, 2000));
         const servers = [];
         const title = (_a = $("title").text()) !== null && _a !== void 0 ? _a : "";
         const base = (_b = $("iframe").attr("src")) !== null && _b !== void 0 ? _b : "";

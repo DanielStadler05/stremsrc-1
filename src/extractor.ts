@@ -112,6 +112,7 @@ async function serversLoad(
   html: string,
 ): Promise<{ servers: Servers[]; title: string }> {
   const $ = cheerio.load(html);
+  console.log("Full HTML:", html.substring(0, 2000));
   const servers: Servers[] = [];
   const title = $("title").text() ?? "";
   const base = $("iframe").attr("src") ?? "";
