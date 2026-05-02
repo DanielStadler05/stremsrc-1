@@ -187,6 +187,7 @@ export function getUrl(id: string, type: ContentType) {
 
 async function getStreamContent(id: string, type: ContentType) {
   const url = getUrl(id, type);
+  console.log("VidSrc fetching URL:", url);
   const embed = await fetch(url, {
     headers: {
       ...getRandomizedHeaders(),
