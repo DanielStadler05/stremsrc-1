@@ -262,7 +262,6 @@ const res = apiResponse;
               Referer: `${BASEDOM}/`,
             },
           },
-          notWebReady: true,
         },
       });
 
@@ -281,7 +280,6 @@ const res = apiResponse;
                 Referer: `${BASEDOM}/`,
               },
             },
-            notWebReady: true,
           },
         });
       }
@@ -298,7 +296,6 @@ const res = apiResponse;
               Referer: `${BASEDOM}/`,
             },
           },
-          notWebReady: true,
         },
       });
     }
