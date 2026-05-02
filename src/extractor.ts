@@ -239,8 +239,9 @@ async function getStreamContent(id: string, type: ContentType) {
     }
   }
 
-  const res = apiResponse;
-
+const res = apiResponse;
+  console.log("VidSrc servers found:", servers.length);
+  console.log("VidSrc streams found:", res.length);
   if (!res) return [];
 
   let streams: Stream[] = [];
