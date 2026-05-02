@@ -38,16 +38,15 @@ export const addonFn = async ({
 
     const allStreams: Stream[] = [];
 
-    // Add VidSrc streams if successful
-    if (vidsrcStreams.status === "fulfilled" && vidsrcStreams.value) {
+console.log("VidSrc result:", vidsrcStreams.status, vidsrcStreams.status === "rejected" ? vidsrcStreams.reason : vidsrcStreams.value?.length);
+console.log("PStream result:", pStreamStreams.status, pStreamStreams.status === "rejected" ? pStreamStreams.reason : pStreamStreams.value?.length);
+
+if (vidsrcStreams.status === "fulfilled" && vidsrcStreams.value) {
       allStreams.push(...vidsrcStreams.value);
     }
-
-    // Add P-Stream streams if successful
     if (pStreamStreams.status === "fulfilled" && pStreamStreams.value) {
       allStreams.push(...pStreamStreams.value);
     }
-
     return {
       streams: allStreams,
     };
