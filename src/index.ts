@@ -2,7 +2,7 @@
 
 import { serveHTTP, publishToCentral } from "stremio-addon-sdk";
 import addonInterface from "./addon";
-serveHTTP(addonInterface, { port: parseInt(process.env.PORT || '56245') });
+serveHTTP(addonInterface, { port: parseInt(process.env.PORT || "7000") });
 
 // when you've deployed your addon, un-comment this line
 // publishToCentral("https://my-addon.awesome/manifest.json")
