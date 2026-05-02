@@ -4,8 +4,8 @@ exports.isTmdbMovie = isTmdbMovie;
 exports.isTmdbSeries = isTmdbSeries;
 // Type guards
 function isTmdbMovie(meta) {
-    return meta.type === 'movie';
+    return meta.type === "movie";
 }
 function isTmdbSeries(meta) {
-    return meta.type === 'tv';
+    return meta.type === "series";
 }

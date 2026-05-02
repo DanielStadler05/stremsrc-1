@@ -35,7 +35,7 @@ function getScrapeMedia(id, type) {
                 type: "movie",
                 title: r.meta.name,
                 releaseYear: new Date(r.meta.released).getUTCFullYear(),
-                tmdbId: r.meta.id.split(":")[1],
+                tmdbId: String(r.meta.moviedb_id),
                 imdbId: r.meta.imdb_id,
             };
         const vid = r.meta.videos.find((v) => v.id === `${r.meta.imdb_id}:${args[1]}:${args[2]}`);

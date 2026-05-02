@@ -48,6 +48,7 @@ interface TmdbAppExtras {
 interface BaseMeta {
   id: string;
   imdb_id: string;
+  moviedb_id: number;
   name: string;
   description: string;
   poster: string;
@@ -79,7 +80,7 @@ interface TmdbMovieMeta extends BaseMeta {
 
 // TMDB Series Meta
 interface TmdbSeriesMeta extends BaseMeta {
-  type: "tv";
+  type: "series";
   status: string;
   videos: TmdbVideo[];
 }
@@ -94,9 +95,9 @@ export interface MediaData {
 
 // Type guards
 export function isTmdbMovie(meta: TmdbMeta): meta is TmdbMovieMeta {
-  return meta.type === 'movie';
+  return meta.type === "movie";
 }
 
 export function isTmdbSeries(meta: TmdbMeta): meta is TmdbSeriesMeta {
-  return meta.type === 'tv';
+  return meta.type === "series";
 }

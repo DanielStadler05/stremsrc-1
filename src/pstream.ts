@@ -35,7 +35,7 @@ async function getScrapeMedia(
       type: "movie",
       title: r.meta.name,
       releaseYear: new Date(r.meta.released).getUTCFullYear(),
-      tmdbId: r.meta.id.split(":")[1],
+      tmdbId: String(r.meta.moviedb_id),
       imdbId: r.meta.imdb_id,
     };
 
