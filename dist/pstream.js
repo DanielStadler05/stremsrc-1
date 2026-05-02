@@ -25,9 +25,11 @@ function getScrapeMedia(id, type) {
         if (args[0] === "tmdb")
             args = [`${args[0]}:${args[1]}`, args[2], args[3]];
         const url = `${constants_1.TMDB_META_URL}/${type}/${args[0]}.json`;
+        console.log("PStream fetching meta URL:", url);
         const r = (yield (yield fetch(url))
             .json()
             .catch(() => null));
+        console.log("PStream meta response:", r ? "got data" : "null");
         if (!r)
             return null;
         if ((0, catalog_1.isTmdbMovie)(r.meta))

@@ -24,10 +24,12 @@ async function getScrapeMedia(
   if (args[0] === "tmdb") args = [`${args[0]}:${args[1]}`, args[2], args[3]];
 
   const url = `${TMDB_META_URL}/${type}/${args[0]}.json`;
+  console.log("PStream fetching meta URL:", url);
   const r = (await (await fetch(url))
     .json()
     .catch(() => null)) as MediaData | null;
 
+  console.log("PStream meta response:", r ? "got data" : "null");
   if (!r) return null;
 
   if (isTmdbMovie(r.meta))
