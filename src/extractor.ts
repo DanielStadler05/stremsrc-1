@@ -109,14 +109,21 @@ interface RCPResponse {
   data: string;
 }
 async function serversLoad(
-  html: string
+  html: string,
 ): Promise<{ servers: Servers[]; title: string }> {
   const $ = cheerio.load(html);
   const servers: Servers[] = [];
   const title = $("title").text() ?? "";
   const base = $("iframe").attr("src") ?? "";
-  BASEDOM =
-    new URL(base.startsWith("//") ? "https:" + base : base).origin ?? BASEDOM;
+  try {
+    if (base) {
+      BASEDOM =
+        new URL(base.startsWith("//") ? "https:" + base : base).origin ??
+        BASEDOM;
+    }
+  } catch (e) {
+    console.log("Could not parse BASEDOM from iframe src:", base);
+  }
   $(".serversList .server").each((index, element) => {
     const server = $(element);
     servers.push({
@@ -211,7 +218,7 @@ async function getStreamContent(id: string, type: ContentType) {
   const prosrcrcp = await Promise.all(
     rcpResponses.map(async (response, i) => {
       return rcpGrabber(await response.text());
-    })
+    }),
   );
 
   const apiResponse: APIResponse[] = [];
@@ -220,7 +227,7 @@ async function getStreamContent(id: string, type: ContentType) {
     switch (item.data.substring(0, 8)) {
       case "/prorcp/":
         const streamUrl = await PRORCPhandler(
-          item.data.replace("/prorcp/", "")
+          item.data.replace("/prorcp/", ""),
         );
         if (streamUrl) {
           // Check if this is an HLS master playlist
@@ -239,7 +246,7 @@ async function getStreamContent(id: string, type: ContentType) {
     }
   }
 
-const res = apiResponse;
+  const res = apiResponse;
   console.log("VidSrc servers found:", servers.length);
   console.log("VidSrc streams found:", res.length);
   if (!res) return [];

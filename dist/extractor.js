@@ -134,8 +134,15 @@ function serversLoad(html) {
         const servers = [];
         const title = (_a = $("title").text()) !== null && _a !== void 0 ? _a : "";
         const base = (_b = $("iframe").attr("src")) !== null && _b !== void 0 ? _b : "";
-        BASEDOM =
-            (_c = new URL(base.startsWith("//") ? "https:" + base : base).origin) !== null && _c !== void 0 ? _c : BASEDOM;
+        try {
+            if (base) {
+                BASEDOM =
+                    (_c = new URL(base.startsWith("//") ? "https:" + base : base).origin) !== null && _c !== void 0 ? _c : BASEDOM;
+            }
+        }
+        catch (e) {
+            console.log("Could not parse BASEDOM from iframe src:", base);
+        }
         $(".serversList .server").each((index, element) => {
             var _a;
             const server = $(element);
