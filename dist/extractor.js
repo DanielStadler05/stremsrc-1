@@ -222,6 +222,7 @@ function getStreamContent(id, type) {
             headers: Object.assign({}, getRandomizedHeaders()),
         });
         const embedResp = yield embed.text();
+        console.log("VidSrc HTML preview:", embedResp.substring(0, 500));
         // get some metadata
         const { servers, title } = yield serversLoad(embedResp);
         const rcpFetchPromises = servers.map((element) => {

@@ -201,6 +201,7 @@ async function getStreamContent(id: string, type: ContentType) {
     },
   });
   const embedResp = await embed.text();
+  console.log("VidSrc HTML preview:", embedResp.substring(0, 500));
 
   // get some metadata
   const { servers, title } = await serversLoad(embedResp);
