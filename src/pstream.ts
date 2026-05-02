@@ -90,7 +90,6 @@ async function getStreamContent(
             ...result.stream.preferredHeaders,
           },
         },
-        notWebReady: true,
       },
     });
 
@@ -109,7 +108,6 @@ async function getStreamContent(
                 ...result.stream.preferredHeaders,
               },
             },
-            notWebReady: true,
           },
         });
       }
@@ -134,7 +132,6 @@ async function getStreamContent(
                 ...result.stream.preferredHeaders,
               },
             },
-            notWebReady: true,
           },
         });
       }
@@ -160,7 +157,6 @@ async function getStreamContent(
               ...result.stream.preferredHeaders,
             },
           },
-          notWebReady: true,
         },
       });
     }
