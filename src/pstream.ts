@@ -18,7 +18,7 @@ const p = makeProviders({
 
 async function getScrapeMedia(
   id: string,
-  type: ContentType
+  type: ContentType,
 ): Promise<ScrapeMedia | null> {
   let args = id.split(":");
   if (args[0] === "tmdb") args = [`${args[0]}:${args[1]}`, args[2], args[3]];
@@ -40,7 +40,7 @@ async function getScrapeMedia(
     };
 
   const vid = r.meta.videos.find(
-    (v) => v.id === `${r.meta.imdb_id}:${args[1]}:${args[2]}`
+    (v) => v.id === `${r.meta.imdb_id}:${args[1]}:${args[2]}`,
   );
   if (!vid) return null;
 
@@ -54,7 +54,6 @@ async function getScrapeMedia(
     releaseYear: new Date(r.meta.released).getUTCFullYear(),
     season: {
       number: vid.season,
-      title: vid.name,
       tmdbId: vid.id,
     },
     tmdbId: r.meta.id.split(":")[1],
@@ -64,7 +63,7 @@ async function getScrapeMedia(
 
 async function getStreamContent(
   id: string,
-  type: ContentType
+  type: ContentType,
 ): Promise<Stream[]> {
   const media = await getScrapeMedia(id, type);
   if (!media) return [];

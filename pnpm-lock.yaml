@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@p-stream/providers':
-        specifier: github:p-stream/providers#production
-        version: https://codeload.github.com/p-stream/providers/tar.gz/1ce2192173f6856451874273dccafcbe80e88550
+        specifier: github:sussy-code/providers
+        version: '@movie-web/providers@https://codeload.github.com/sussy-code/providers/tar.gz/b53ad8a399bd342e68c10501b45a6a1f635a5812'
       cheerio:
         specifier: ^1.0.0
         version: 1.0.0
@@ -40,9 +40,9 @@ packages:
     resolution: {integrity: sha512-KHp2IflsnGywDjBWDkR9iEqiWSpc8GIi0lgTT3mOElT0PP1tG26P4tmFI2YvAdzgq9RGyoHZQEIEdZy6Ec5xCA==}
     engines: {node: '>=6.9.0'}
 
-  '@p-stream/providers@https://codeload.github.com/p-stream/providers/tar.gz/1ce2192173f6856451874273dccafcbe80e88550':
-    resolution: {tarball: https://codeload.github.com/p-stream/providers/tar.gz/1ce2192173f6856451874273dccafcbe80e88550}
-    version: 3.1.1
+  '@movie-web/providers@https://codeload.github.com/sussy-code/providers/tar.gz/b53ad8a399bd342e68c10501b45a6a1f635a5812':
+    resolution: {tarball: https://codeload.github.com/sussy-code/providers/tar.gz/b53ad8a399bd342e68c10501b45a6a1f635a5812}
+    version: 2.3.0
 
   '@types/m3u8-parser@7.2.3':
     resolution: {integrity: sha512-5qleblo43RShftqx+2bX/xmfSf3r6FQ8OvbHtwxgZcGuJKIDzSw4Hi7nu13k9B5qwPIixKlPN6za/ah4NH7dbg==}
@@ -56,10 +56,6 @@ packages:
   '@videojs/vhs-utils@4.1.1':
     resolution: {integrity: sha512-5iLX6sR2ownbv4Mtejw6Ax+naosGvoT9kY+gcuHzANyUZZ+4NpeNdKMUhb6ag0acYej1Y7cmr/F2+4PrggMiVA==}
     engines: {node: '>=8', npm: '>=5'}
-
-  abort-controller@3.0.0:
-    resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
-    engines: {node: '>=6.5'}
 
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
@@ -269,10 +265,6 @@ packages:
   etag@1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
-
-  event-target-shim@5.0.1:
-    resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
-    engines: {node: '>=6'}
 
   express@4.21.2:
     resolution: {integrity: sha512-28HqgMZAmih1Czt9ny7qr6ek2qddF4FclbMzwhCREB6OFfH+rXAnuNCwo1/wFvrtbgsQDb4kSbX9de9lFbrXnA==}
@@ -699,9 +691,8 @@ snapshots:
 
   '@babel/runtime@7.28.2': {}
 
-  '@p-stream/providers@https://codeload.github.com/p-stream/providers/tar.gz/1ce2192173f6856451874273dccafcbe80e88550':
+  '@movie-web/providers@https://codeload.github.com/sussy-code/providers/tar.gz/b53ad8a399bd342e68c10501b45a6a1f635a5812':
     dependencies:
-      abort-controller: 3.0.0
       cheerio: 1.0.0-rc.12
       cookie: 0.6.0
       crypto-js: 4.2.0
@@ -726,10 +717,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.2
       global: 4.4.0
-
-  abort-controller@3.0.0:
-    dependencies:
-      event-target-shim: 5.0.1
 
   accepts@1.3.8:
     dependencies:
@@ -942,8 +929,6 @@ snapshots:
   escape-string-regexp@1.0.5: {}
 
   etag@1.8.1: {}
-
-  event-target-shim@5.0.1: {}
 
   express@4.21.2:
     dependencies:

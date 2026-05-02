@@ -51,7 +51,6 @@ function getScrapeMedia(id, type) {
             releaseYear: new Date(r.meta.released).getUTCFullYear(),
             season: {
                 number: vid.season,
-                title: vid.name,
                 tmdbId: vid.id,
             },
             tmdbId: r.meta.id.split(":")[1],
